@@ -1,0 +1,15 @@
+# Service type: Node Port: makes a pod accessible from outside the cluster.
+# Usually only used for dev purposes
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-srv
+spec:
+  type: NodePort # Node Port: makes a pod accessible from outside the cluster.
+  selector:
+    app: posts
+  ports:
+    - name: posts
+      protocol: TCP
+      port: 4000
+      targetPort: 4000
